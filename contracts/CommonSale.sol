@@ -64,7 +64,7 @@ contract CommonSale is StagedCrowdsale {
     totalTokensMinted = totalTokensMinted.add(tokens);
     totalInvested = totalInvested.add(weiInvested);
     stage.invested = stage.invested.add(weiInvested);
-    if(stage.invested >= stage.hardcap) {
+    if (stage.invested >= stage.hardcap) {
       stage.closed = now;
     }
   }

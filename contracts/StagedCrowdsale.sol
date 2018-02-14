@@ -44,7 +44,7 @@ contract StagedCrowdsale is Pausable {
   }
 
   function removeStage(uint8 number) public onlyOwner {
-    require(number >=0 && number < stages.length);
+    require(number >= 0 && number < stages.length);
     Stage storage stage = stages[number];
     totalHardcap = totalHardcap.sub(stage.hardcap);
     delete stages[number];
@@ -55,7 +55,7 @@ contract StagedCrowdsale is Pausable {
   }
 
   function changeStage(uint8 number, uint hardcap, uint price) public onlyOwner {
-    require(number >= 0 &&number < stages.length);
+    require(number >= 0 && number < stages.length);
     Stage storage stage = stages[number];
     totalHardcap = totalHardcap.sub(stage.hardcap);
     stage.hardcap = hardcap.mul(1 ether);
@@ -97,8 +97,8 @@ contract StagedCrowdsale is Pausable {
   }
 
   function currentStage() public saleIsOn isUnderHardcap constant returns(uint) {
-    for(uint i=0; i < stages.length; i++) {
-      if(stages[i].closed == 0) {
+    for (uint i = 0; i < stages.length; i++) {
+      if (stages[i].closed == 0) {
         return i;
       }
     }

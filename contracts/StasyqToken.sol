@@ -17,37 +17,39 @@ contract StasyqToken is MintableToken {
 
   mapping(address => bool)  public registeredCallbacks;
 
-  modifier notLocked() {
+  modifier canTransfer() {
     require(msg.sender == owner || msg.sender == saleAgent || mintingFinished);
     _;
   }
 
-  function setSaleAgent(address newSaleAgnet) public {
-    require(msg.sender == saleAgent || msg.sender == owner);
+  modifier onlyOwnerOrSaleAgent() {
+    require(msg.sender == owner || msg.sender == saleAgent);
+    _;
+  }
+
+  function setSaleAgent(address newSaleAgnet) public onlyOwnerOrSaleAgent {
     saleAgent = newSaleAgnet;
   }
 
-  function mint(address _to, uint256 _amount) public returns (bool) {
-    require(msg.sender == saleAgent && !mintingFinished);
+  function mint(address _to, uint256 _amount) public onlyOwnerOrSaleAgent canMint returns (bool) {
     totalSupply_ = totalSupply_.add(_amount);
     balances[_to] = balances[_to].add(_amount);
     Mint(_to, _amount);
     return true;
   }
 
-  function finishMinting() public returns (bool) {
-    require((msg.sender == saleAgent || msg.sender == owner) && !mintingFinished);
+  function finishMinting() public onlyOwnerOrSaleAgent canMint returns (bool) {
     mintingFinished = true;
     MintFinished();
     return true;
   }
 
-  function transfer(address _to, uint256 _value) public notLocked returns (bool) {
+  function transfer(address _to, uint256 _value) public canTransfer returns (bool) {
     require(locked[msg.sender] < now);
     return super.transfer(_to, _value);
   }
 
-  function transferFrom(address _from, address _to, uint256 _value) public notLocked returns (bool) {
+  function transferFrom(address _from, address _to, uint256 _value) public canTransfer returns (bool) {
     require(locked[_from] < now);
     return processCallback(super.transferFrom(_from, _to, _value), _from, _to, _value);
   }

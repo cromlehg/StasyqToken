@@ -1,6 +1,6 @@
 pragma solidity ^0.4.18;
 
-import './MintableToken.sol';
+import './token/ERC20/MintableToken.sol';
 import './ReceivingContractCallback.sol';
 
 contract StasyqToken is ReceivingContractCallback, MintableToken {
@@ -11,11 +11,38 @@ contract StasyqToken is ReceivingContractCallback, MintableToken {
 
   uint32 public constant decimals = 18;
 
+  address public saleAgent;
+
   mapping (address => uint) public locked;
 
   mapping(address => bool)  public registeredCallbacks;
 
-  function transfer(address _to, uint256 _value) public returns (bool) {
+  modifier notLocked() {
+    require(msg.sender == owner || msg.sender == saleAgent || mintingFinished);
+    _;
+  }
+
+  function setSaleAgent(address newSaleAgnet) public {
+    require(msg.sender == saleAgent || msg.sender == owner);
+    saleAgent = newSaleAgnet;
+  }
+
+  function mint(address _to, uint256 _amount) public returns (bool) {
+    require(msg.sender == saleAgent && !mintingFinished);
+    totalSupply_ = totalSupply_.add(_amount);
+    balances[_to] = balances[_to].add(_amount);
+    Mint(_to, _amount);
+    return true;
+  }
+
+  function finishMinting() public returns (bool) {
+    require((msg.sender == saleAgent || msg.sender == owner) && !mintingFinished);
+    mintingFinished = true;
+    MintFinished();
+    return true;
+  }
+
+  function transfer(address _to, uint256 _value) public notLocked returns (bool) {
     require(locked[msg.sender] < now);
     return super.transfer(_to, _value);
   }

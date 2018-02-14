@@ -8,13 +8,13 @@ contract ITO is CommonSale {
   StasyqToken public token;
 
   address public foundersTokensWallet;
-  
+
   address public bountyTokensWallet;
-  
+
   uint public foundersTokensPercent;
-  
+
   uint public bountyTokensPercent;
-  
+
   uint public lockPeriod;
 
   function ITO() public {
@@ -28,11 +28,11 @@ contract ITO is CommonSale {
     addStage(2000,11000);
     addStage(2000,10500);
     addStage(2000,10000);
-    masterWallet = 0x95EA6A4ec9F80436854702e5F05d238f27166A03;
-    slaveWallet = 0x070EcC35a3212D76ad443d529216a452eAA35E3D;
+    masterWallet = 0x6715Feb90B78d4d7aD92FbaCA7Fd70481e12f836;
+    slaveWallet = 0x8029618Ecb5445B73515d7C51AbB316A91FC7f23;
     slaveWalletPercent = 50;
     foundersTokensWallet = 0x95EA6A4ec9F80436854702e5F05d238f27166A03;
-    bountyTokensWallet = 0x95EA6A4ec9F80436854702e5F05d238f27166A03;
+    bountyTokensWallet = 0x6715Feb90B78d4d7aD92FbaCA7Fd70481e12f836;
     start = 1525352400;
     period = 60;
     lockPeriod = 90;

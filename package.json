@@ -22,7 +22,7 @@
     "compile": "./node_modules/.bin/truffle compile",
     "test": "./scripts/test.sh",
     "flatten": "npm run flatten-ito && npm run flatten-token",
-    "flatten-configurator": "./node_modules/.bin/truffle-flattener ./contracts/ITO.sol > ./deploy/ITO.sol",
+    "flatten-ito": "./node_modules/.bin/truffle-flattener ./contracts/ITO.sol > ./deploy/ITO.sol",
     "flatten-token": "./node_modules/.bin/truffle-flattener ./contracts/StasyqToken.sol > ./deploy/StasyqToken.sol"
   },
   "repository": {

@@ -1,4 +1,4 @@
-![StasyqToken](logo.png "StasyqToken")
+![StasyqToken](logo.jpg "StasyqToken")
 
 # StasyqToken smart contract
 

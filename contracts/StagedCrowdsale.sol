@@ -1,7 +1,7 @@
 pragma solidity ^0.4.18;
 
-import 'zeppelin-solidity/contracts/lifecycle/Pausable.sol';
-import 'zeppelin-solidity/contracts/math/SafeMath.sol';
+import './lifecycle/Pausable.sol';
+import './math/SafeMath.sol';
 
 contract StagedCrowdsale is Pausable {
 
@@ -19,7 +19,7 @@ contract StagedCrowdsale is Pausable {
   uint public period;
 
   uint public totalHardcap;
- 
+
   uint public totalInvested;
 
   Stage[] public stages;
@@ -46,7 +46,7 @@ contract StagedCrowdsale is Pausable {
   function removeStage(uint8 number) public onlyOwner {
     require(number >=0 && number < stages.length);
     Stage storage stage = stages[number];
-    totalHardcap = totalHardcap.sub(stage.hardcap);    
+    totalHardcap = totalHardcap.sub(stage.hardcap);
     delete stages[number];
     for (uint i = number; i < stages.length - 1; i++) {
       stages[i] = stages[i+1];
@@ -57,10 +57,10 @@ contract StagedCrowdsale is Pausable {
   function changeStage(uint8 number, uint hardcap, uint price) public onlyOwner {
     require(number >= 0 &&number < stages.length);
     Stage storage stage = stages[number];
-    totalHardcap = totalHardcap.sub(stage.hardcap);    
+    totalHardcap = totalHardcap.sub(stage.hardcap);
     stage.hardcap = hardcap.mul(1 ether);
     stage.price = price;
-    totalHardcap = totalHardcap.add(stage.hardcap);    
+    totalHardcap = totalHardcap.add(stage.hardcap);
   }
 
   function insertStage(uint8 numberAfter, uint hardcap, uint price) public onlyOwner {
@@ -90,7 +90,7 @@ contract StagedCrowdsale is Pausable {
     require(stages.length > 0 && now >= start && now < lastSaleDate());
     _;
   }
-  
+
   modifier isUnderHardcap() {
     require(totalInvested <= totalHardcap);
     _;

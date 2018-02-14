@@ -8,26 +8,28 @@ contract CommonSale is StagedCrowdsale {
   address public masterWallet;
 
   address public slaveWallet;
-  
+
   address public directMintAgent;
+
+  uint public slaveWalletPercent;
 
   uint public percentRate = 100;
 
   uint public minPrice;
 
   uint public totalTokensMinted;
-  
+
   StasyqToken public token;
-  
+
   modifier onlyDirectMintAgentOrOwner() {
     require(directMintAgent == msg.sender || owner == msg.sender);
     _;
   }
-  
+
   function setDirectMintAgent(address newDirectMintAgent) public onlyOwner {
     directMintAgent = newDirectMintAgent;
   }
-  
+
   function setMinPrice(uint newMinPrice) public onlyOwner {
     minPrice = newMinPrice;
   }
@@ -37,7 +39,7 @@ contract CommonSale is StagedCrowdsale {
   }
 
   function setToken(address newToken) public onlyOwner {
-    token = VestarinToken(newToken);
+    token = StasyqToken(newToken);
   }
 
   function directMint(address to, uint investedWei) public onlyDirectMintAgentOrOwner saleIsOn {
@@ -70,7 +72,7 @@ contract CommonSale is StagedCrowdsale {
   function() external payable {
     createTokens();
   }
-  
+
   function retrieveTokens(address anotherToken, address to) public onlyOwner {
     ERC20 alienToken = ERC20(anotherToken);
     alienToken.transfer(to, alienToken.balanceOf(this));

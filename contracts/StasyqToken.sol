@@ -3,12 +3,12 @@ pragma solidity ^0.4.18;
 import './MintableToken.sol';
 import './ReceivingContractCallback.sol';
 
-contract StasyqToken is ReceivingContractCallback, MintableToken {	
-    
+contract StasyqToken is ReceivingContractCallback, MintableToken {
+
   string public constant name = "Stasyq";
-   
+
   string public constant symbol = "STQ";
-    
+
   uint32 public constant decimals = 18;
 
   mapping (address => uint) public locked;
@@ -20,11 +20,11 @@ contract StasyqToken is ReceivingContractCallback, MintableToken {
     return super.transfer(_to, _value);
   }
 
-  function transferFrom(address from, address to, uint256 value) public notLocked returns (bool) {
+  function transferFrom(address _from, address _to, uint256 _value) public notLocked returns (bool) {
     require(locked[_from] < now);
-    return processCallback(super.transferFrom(from, to, value), from, to, value);
+    return processCallback(super.transferFrom(_from, _to, _value), _from, _to, _value);
   }
-  
+
   function lock(address addr, uint periodInDays) public {
     require(locked[addr] < now && (msg.sender == saleAgent || msg.sender == addr));
     locked[addr] = now + periodInDays * 1 days;

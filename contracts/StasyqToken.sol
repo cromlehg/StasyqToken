@@ -3,7 +3,7 @@ pragma solidity ^0.4.18;
 import './token/ERC20/MintableToken.sol';
 import './ReceivingContractCallback.sol';
 
-contract StasyqToken is ReceivingContractCallback, MintableToken {
+contract StasyqToken is MintableToken {
 
   string public constant name = "Stasyq";
 

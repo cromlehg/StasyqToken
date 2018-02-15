@@ -5,8 +5,6 @@ import './StasyqToken.sol';
 
 contract ITO is CommonSale {
 
-  StasyqToken public token;
-
   address public foundersTokensWallet;
 
   address public bountyTokensWallet;

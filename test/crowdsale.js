@@ -17,26 +17,25 @@ contract('ITO - common test', function (accounts) {
   common(token, crowdsale, accounts);
 });
 
-// contract('ITO - capped crowdsale test', function (accounts) {
-//   before(config);
-//   capped(token, crowdsale, accounts);
-// });
+contract('ITO - capped crowdsale test', function (accounts) {
+  before(config);
+  capped(token, crowdsale, accounts);
+});
+/*
+contract('ITO - milestone bonus test', function (accounts) {
+  before(config);
+  milestonebonus(token, crowdsale, accounts);
+});
+*/
+contract('ITO - bounty test', function (accounts) {
+  before(config);
+  bounty(token, crowdsale, accounts);
+});
 
-// contract('ITO - milestone bonus test', function (accounts) {
-//   before(config);
-//   milestonebonus(token, crowdsale, accounts);
-// });
-
-
-// contract('ITO - bounty test', function (accounts) {
-//   before(config);
-//   bounty(token, crowdsale, accounts);
-// });
-
-// contract('ITO - additional features test', function (accounts) {
-//   before(config);
-//   additional(token, crowdsale, accounts);
-// });
+contract('ITO - additional features test', function (accounts) {
+  before(config);
+  additional(token, crowdsale, accounts);
+});
 
 function config() {
   // variables list based on info from README

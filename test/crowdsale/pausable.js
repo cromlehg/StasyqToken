@@ -27,20 +27,22 @@ export default function (Token, Crowdsale, wallets) {
     await crowdsale.setStart(latestTime());
   });
 
-  it('should correctly calculate bonuses for founders and bounty', async function () {
-    await crowdsale.sendTransaction({value: ether(0.1), from: wallets[0]});
-    await crowdsale.sendTransaction({value: ether(99), from: wallets[2]});
+  it('should accept payments if unpaused', async function () {
     const owner = await crowdsale.owner();
-    await crowdsale.finishMinting({from: owner});
-    const firstInvestorTokens = await token.balanceOf(wallets[0]);
-    const secondInvestorTokens = await token.balanceOf(wallets[2]);
-    const foundersTokens = await token.balanceOf(this.foundersTokensWallet);
-    const bountyTokens = await token.balanceOf(this.bountyTokensWallet);
-    const totalTokens = firstInvestorTokens
-      .plus(secondInvestorTokens)
-      .plus(foundersTokens)
-      .plus(bountyTokens);
-    assert.equal(foundersTokens.div(totalTokens), this.foundersTokensPercent / 100);
-    assert.equal(bountyTokens.div(totalTokens), this.bountyTokensPercent / 100);
+    const paused = await crowdsale.paused();
+    if (paused) {
+      await crowdsale.unpause({from: owner});
+    }
+    await crowdsale.sendTransaction({value: ether(1), from: wallets[3]}).should.be.fulfilled;
+  });
+
+  it('should reject payments if paused', async function () {
+    const owner = await crowdsale.owner();
+    const paused = await crowdsale.paused();
+    if (!paused) {
+      await crowdsale.pause({from: owner});
+    }
+    await crowdsale.sendTransaction({value: ether(1), from: wallets[4]}).should.be.rejectedWith(EVMRevert);
   });
 }
+

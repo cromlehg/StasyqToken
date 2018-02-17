@@ -39,7 +39,7 @@ export default function (Token, Crowdsale, wallets) {
   });
 
   it('should reject payments before start', async function () {
-    await crowdsale.setStart(this.start + duration.seconds(30));
+    await crowdsale.setStart(this.start + duration.seconds(1));
     await crowdsale.sendTransaction({value: ether(1), from: wallets[3]}).should.be.rejectedWith(EVMRevert);
   });
 
@@ -48,20 +48,24 @@ export default function (Token, Crowdsale, wallets) {
     await crowdsale.sendTransaction({value: ether(1), from: wallets[3]}).should.be.fulfilled;
   });
 
+    it('should reject payments after finish', async function () {
+    await increaseTimeTo(this.start + duration.seconds(10));
+    await crowdsale.sendTransaction({value: ether(1), from: wallets[3]}).should.be.fulfilled;
+    const owner = await crowdsale.owner();
+    await crowdsale.finishMinting({from: owner}).should.be.fulfilled;
+    await crowdsale.sendTransaction({value: ether(1), from: wallets[3]}).should.be.rejectedWith(EVMRevert);
+  });
+
+  it('should assign tokens to sender', async function () {
+    await crowdsale.sendTransaction({value: ether(1), from: wallets[3]});
+    const balance = await token.balanceOf(wallets[3]);
+    const currentStage = await crowdsale.currentStage();
+    const stage = await crowdsale.stages(currentStage);
+    balance.should.be.bignumber.equal(ether(stage[1]));
+  });
+
   it('should reject payments after end', async function () {
     await increaseTimeTo(this.afterEnd);
     await crowdsale.sendTransaction({value: ether(1), from: wallets[3]}).should.be.rejectedWith(EVMRevert);
   });
-
-  // it('should reject payments after finish', async function () {
-  //   await crowdsale.sendTransaction({value: ether(1), from: wallets[3]}).should.be.fulfilled;
-  //   await crowdsale.finishMinting().should.be.fulfilled;
-  //   await crowdsale.sendTransaction({value: ether(1), from: wallets[3]}).should.be.rejectedWith(EVMRevert);
-  // });
-
-  // it('should assign tokens to sender', async function () {
-  //   await crowdsale.sendTransaction({value: ether(1), from: wallets[3]});
-  //   const balance = await token.balanceOf(wallets[3]);
-  //   balance.should.be.bignumber.equal(this.price.times(1.1));
-  // });
 }

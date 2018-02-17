@@ -13,16 +13,16 @@ export default function (Token, Crowdsale, wallets) {
   let token;
   let crowdsale;
   const milestones = [
-    {hardcap: 2000, price: 14500, bonus: 45},
-    {hardcap: 2000, price: 14000, bonus: 40},
-    {hardcap: 2000, price: 13500, bonus: 35},
-    {hardcap: 2000, price: 13000, bonus: 30},
-    {hardcap: 2000, price: 12500, bonus: 25},
-    {hardcap: 2000, price: 12000, bonus: 20},
-    {hardcap: 2000, price: 11500, bonus: 15},
-    {hardcap: 2000, price: 11000, bonus: 10},
-    {hardcap: 2000, price: 10500, bonus: 5},
-    {hardcap: 2000, price: 10000, bonus: 0}
+    {hardcap: 2000, price: 14500},
+    {hardcap: 2000, price: 14000},
+    {hardcap: 2000, price: 13500},
+    {hardcap: 2000, price: 13000},
+    {hardcap: 2000, price: 12500},
+    {hardcap: 2000, price: 12000},
+    {hardcap: 2000, price: 11500},
+    {hardcap: 2000, price: 11000},
+    {hardcap: 2000, price: 10500},
+    {hardcap: 2000, price: 10000}
   ];
 
   before(async function () {
@@ -44,8 +44,7 @@ export default function (Token, Crowdsale, wallets) {
         await crowdsale.sendTransaction({value: ether(milestone.hardcap), from: wallets[i]});
         const balance = await token.balanceOf(wallets[i]);
         const tokens = ether(milestone.hardcap).mul(milestone.price);
-        const bonusTokens = tokens.mul(milestone.bonus).div(100);
-        balance.should.be.bignumber.equal(tokens.add(bonusTokens));
+        balance.should.be.bignumber.equal(tokens);
       });
     }
   });

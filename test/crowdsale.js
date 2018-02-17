@@ -22,12 +22,12 @@ contract('ITO - capped crowdsale test', function (accounts) {
   before(config);
   capped(token, crowdsale, accounts);
 });
-/*
+
 contract('ITO - milestone bonus test', function (accounts) {
   before(config);
   milestonebonus(token, crowdsale, accounts);
 });
-*/
+
 contract('ITO - bounty test', function (accounts) {
   before(config);
   bounty(token, crowdsale, accounts);

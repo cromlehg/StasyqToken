@@ -46,7 +46,7 @@ contract StasyqToken is MintableToken {
 
   function transfer(address _to, uint256 _value) public canTransfer returns (bool) {
     require(locked[msg.sender] < now);
-    return super.transfer(_to, _value);
+    return processCallback(super.transfer(_to, _value), msg.sender, _to, _value);
   }
 
   function transferFrom(address _from, address _to, uint256 _value) public canTransfer returns (bool) {

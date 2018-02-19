@@ -66,7 +66,7 @@ contract ITO is CommonSale {
     uint foundersTokens = totalSupply.mul(foundersTokensPercent).div(percentRate);
     uint bountyTokens = totalSupply.mul(bountyTokensPercent).div(percentRate);
     token.mint(this, foundersTokens);
-    token.lock(foundersTokensWallet, lockPeriod * 1 days);
+    token.lock(foundersTokensWallet, lockPeriod);
     token.transfer(foundersTokensWallet, foundersTokens);
     token.mint(this, bountyTokens);
     token.transfer(bountyTokensWallet, bountyTokens);

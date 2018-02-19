@@ -56,7 +56,7 @@ contract StasyqToken is MintableToken {
 
   function lock(address addr, uint periodInDays) public {
     require(locked[addr] < now && (msg.sender == saleAgent || msg.sender == addr));
-    locked[addr] = now + periodInDays * 1 days;
+    locked[addr] = now.add(periodInDays * 1 days);
   }
 
   function registerCallback(address callback) public onlyOwner {

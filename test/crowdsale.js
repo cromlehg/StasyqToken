@@ -9,6 +9,7 @@ import milestonebonus from './crowdsale/milestonebonus';
 import bounty from './crowdsale/bounty';
 import pausable from './crowdsale/pausable';
 import additional from './crowdsale/additional';
+import configurator from './crowdsale/configurator';
 
 const token = artifacts.require('StasyqToken.sol');
 const crowdsale = artifacts.require('ITO.sol');
@@ -41,6 +42,11 @@ contract('ITO - pausable crowdsale test', function (accounts) {
 contract('ITO - additional features test', function (accounts) {
   before(config);
   additional(token, crowdsale, accounts);
+});
+
+contract('ITO - configurator test', function (accounts) {
+  before(config);
+  configurator(token,crowdsale,accounts);
 });
 
 function config() {

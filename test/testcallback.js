@@ -30,7 +30,7 @@ function config() {
   this.slaveWalletPercent = 50;
   this.foundersTokensPercent = 25;
   this.bountyTokensPercent = 5;
-  this.foundersTokensLockPeriod = duration.days(90);
+  this.foundersTokensLockPeriod = 90;
 
   // variables for additional testing convinience
   this.end = this.start + duration.days(this.period);

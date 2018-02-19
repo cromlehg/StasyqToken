@@ -33,11 +33,19 @@ export default function (Token, Crowdsale, wallets) {
     balance.should.bignumber.equal(this.price.times(1.45));
   });
 
-   it('should directMint by Direct Mint Agend', async function () {
+  it('should directMint by Direct Mint Agend', async function () {
     const owner = await crowdsale.owner();
     await crowdsale.setDirectMintAgent(wallets[1], {from: owner});
     await crowdsale.directMint(wallets[5], tokens(1), {from: wallets[1]}).should.be.fulfilled;
     const balance = await token.balanceOf(wallets[5]);
     balance.should.bignumber.equal(this.price.times(1.45));
+  });
+
+  it('after finishMinting should lock founders TokensWallet per 90 days', async function() {
+    const owner = await crowdsale.owner();
+    await crowdsale.finishMinting({from: owner});
+    const locked = await token.locked(this.foundersTokensWallet);
+    const lockedTime = latestTime() + duration.days(this.foundersTokensLockPeriod);
+    locked.should.be.bignumber.equal(lockedTime);
   });
 }

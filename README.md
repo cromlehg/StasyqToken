@@ -70,16 +70,16 @@ Maximum tokens can mint - 350 000 000 STQ
 * _Contract owner_              : 0x95EA6A4ec9F80436854702e5F05d238f27166A03
 
 _Milestones_
- 1. Hardcap 2000 ETH, price 14500 STQ per ETH, bonus +45%, summary ~29000000 STQ
- 2. Hardcap 2000 ETH, price 14000 STQ per ETH, bonus +40%, summary ~28000000 STQ
- 3. Hardcap 2000 ETH, price 13500 STQ per ETH, bonus +35%, summary ~27000000 STQ
- 4. Hardcap 2000 ETH, price 13000 STQ per ETH, bonus +30%, summary ~26000000 STQ
- 5. Hardcap 2000 ETH, price 12500 STQ per ETH, bonus +25%, summary ~25000000 STQ
- 6. Hardcap 2000 ETH, price 12000 STQ per ETH, bonus +20%, summary ~24000000 STQ
- 7. Hardcap 2000 ETH, price 11500 STQ per ETH, bonus +15%, summary ~23000000 STQ
- 8. Hardcap 2000 ETH, price 11000 STQ per ETH, bonus +10%, summary ~22000000 STQ
- 9. Hardcap 2000 ETH, price 10500 STQ per ETH, bonus  +5%, summary ~21000000 STQ
-10. Hardcap 2000 ETH, price 10000 STQ per ETH, bonus   0%, summary ~20000000 STQ
+ 1. Hardcap 2000 ETH, price 14500 STQ per ETH (bonus +45%), summary ~29000000 STQ
+ 2. Hardcap 2000 ETH, price 14000 STQ per ETH (bonus +40%), summary ~28000000 STQ
+ 3. Hardcap 2000 ETH, price 13500 STQ per ETH (bonus +35%), summary ~27000000 STQ
+ 4. Hardcap 2000 ETH, price 13000 STQ per ETH (bonus +30%), summary ~26000000 STQ
+ 5. Hardcap 2000 ETH, price 12500 STQ per ETH (bonus +25%), summary ~25000000 STQ
+ 6. Hardcap 2000 ETH, price 12000 STQ per ETH (bonus +20%), summary ~24000000 STQ
+ 7. Hardcap 2000 ETH, price 11500 STQ per ETH (bonus +15%), summary ~23000000 STQ
+ 8. Hardcap 2000 ETH, price 11000 STQ per ETH (bonus +10%), summary ~22000000 STQ
+ 9. Hardcap 2000 ETH, price 10500 STQ per ETH (bonus  +5%), summary ~21000000 STQ
+10. Hardcap 2000 ETH, price 10000 STQ per ETH (bonus   0%), summary ~20000000 STQ
 
 ### Links
 1. _Token_ - 

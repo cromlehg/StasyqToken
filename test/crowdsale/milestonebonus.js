@@ -40,7 +40,7 @@ export default function (Token, Crowdsale, wallets) {
 
   milestones.forEach((milestone, i) => {
     if (i < 10){
-      it(`should add ${milestone.bonus}% bonus for milestone #${i}`, async function () {
+      it(`should add ${(milestone.price - 10000) / 100 }% bonus for milestone #${i}`, async function () {
         await crowdsale.sendTransaction({value: ether(milestone.hardcap), from: wallets[i]});
         const balance = await token.balanceOf(wallets[i]);
         const tokens = ether(milestone.hardcap).mul(milestone.price);

@@ -58,8 +58,8 @@ function config() {
   this.minInvestmentLimit = ether(0.1);
   this.masterWallet = '0x6715Feb90B78d4d7aD92FbaCA7Fd70481e12f836';
   this.slaveWallet = '0x8029618Ecb5445B73515d7C51AbB316A91FC7f23';
-  this.contractOwner = '0x95EA6A4ec9F80436854702e5F05d238f27166A03';
-  this.foundersTokensWallet = '0x95EA6A4ec9F80436854702e5F05d238f27166A03';
+  this.contractOwner = '0x6715Feb90B78d4d7aD92FbaCA7Fd70481e12f836';
+  this.foundersTokensWallet = '0x05E87Dc9c075256cB94951e0b35C581b93961885';
   this.bountyTokensWallet = '0x6715Feb90B78d4d7aD92FbaCA7Fd70481e12f836';
   this.masterWalletPercent = 50;
   this.slaveWalletPercent = 50;

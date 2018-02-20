@@ -56,7 +56,7 @@ Maximum tokens can mint - 350 000 000 STQ
 * _Bounty tokens percent_       : 5%
 * _Founders tokens percent_     : 25%
 * _For sale tokens percent_     : 70%
-* _Founders tokens wallet_      : 0x95EA6A4ec9F80436854702e5F05d238f27166A03
+* _Founders tokens wallet_      : 0x05E87Dc9c075256cB94951e0b35C581b93961885
 * _Bounty tokens wallet_        : 0x6715Feb90B78d4d7aD92FbaCA7Fd70481e12f836
 * _Founders tokens lock period_ : 90 days
 * _Hardcap_                     : 20 000 ETH
@@ -67,7 +67,7 @@ Maximum tokens can mint - 350 000 000 STQ
 * _Slave wallet_                : 0x8029618Ecb5445B73515d7C51AbB316A91FC7f23
 * _Master wallet percent_       : 50%
 * _Slave wallet percent_        : 50%
-* _Contract owner_              : 0x95EA6A4ec9F80436854702e5F05d238f27166A03
+* _Contract owner_              : 0x6715Feb90B78d4d7aD92FbaCA7Fd70481e12f836
 
 _Milestones_
  1. Hardcap 2000 ETH, price 14500 STQ per ETH (bonus +45%), summary ~29000000 STQ

@@ -29,7 +29,7 @@ contract ITO is CommonSale {
     masterWallet = 0x6715Feb90B78d4d7aD92FbaCA7Fd70481e12f836;
     slaveWallet = 0x8029618Ecb5445B73515d7C51AbB316A91FC7f23;
     slaveWalletPercent = 50;
-    foundersTokensWallet = 0x95EA6A4ec9F80436854702e5F05d238f27166A03;
+    foundersTokensWallet = 0x05E87Dc9c075256cB94951e0b35C581b93961885;
     bountyTokensWallet = 0x6715Feb90B78d4d7aD92FbaCA7Fd70481e12f836;
     start = 1525352400;
     period = 60;

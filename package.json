@@ -23,7 +23,8 @@
     "test": "./scripts/test.sh",
     "flatten": "npm run flatten-ito && npm run flatten-token",
     "flatten-ito": "./node_modules/.bin/truffle-flattener ./contracts/ITO.sol > ./deploy/ITO.sol",
-    "flatten-token": "./node_modules/.bin/truffle-flattener ./contracts/StasyqToken.sol > ./deploy/StasyqToken.sol"
+    "flatten-token": "./node_modules/.bin/truffle-flattener ./contracts/StasyqToken.sol > ./deploy/StasyqToken.sol",
+    "flatten-callbacktest": "./node_modules/.bin/truffle-flattener ./contracts/CallbackTest.sol > ./deploy/CallbackTest.sol"
   },
   "repository": {
     "type": "git",

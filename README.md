@@ -4,7 +4,7 @@
 
 * _Standart_        : ERC20
 * _Name_            : StasyqToken
-* _Ticket_          : STQ
+* _Ticket_          : SQOIN
 * _Decimals_        : 18
 * _Emission_        : Mintable
 * _Crowdsales_      : 2

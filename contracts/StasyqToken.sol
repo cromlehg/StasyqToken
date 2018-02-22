@@ -7,7 +7,7 @@ contract StasyqToken is MintableToken {
 
   string public constant name = "Stasyq";
 
-  string public constant symbol = "STQ";
+  string public constant symbol = "SQOIN";
 
   uint32 public constant decimals = 18;
 

@@ -82,8 +82,8 @@ _Milestones_
 10. Hardcap 2000 ETH, price 10000 STQ per ETH (bonus   0%), summary ~20000000 STQ
 
 ### Links
-1. _Token_ - https://etherscan.io/token/0x11f29ded1a1ed54f4e4d666334d33b80fbeaab79
-2. _ITO_ - https://etherscan.io/address/0xa14c275277b788c20534066335e8bd3de77ffde4
+1. _Token_ - https://etherscan.io/token/0xf300cc72613d575a4567405c2a07d2aaf182aebf
+2. _ITO_ - https://etherscan.io/address/0xe945073fe198ef52f1179bc8ca69b65b270fcfc4
 
 ## Ropsten network configuration 
 

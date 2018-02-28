@@ -13,9 +13,9 @@
 
 ## Smart-contracts description
 
-Contract mint bounty and founders tokens after main sale stage finished. 
-Crowdsale contracts have special function to retrieve transferred in errors tokens.
-Also crowdsale contracts have special function to direct mint tokens in wei value (featue implemneted to support external pay gateway).
+The tokens for the bounty and the team are minted after the ICO is finished.
+There is a special function to return 3rd party tokens that were sent by mistake (function retrieveTokens()).
+Each stage has a direct minting function in wei. This is made to support the external payment gateways.
 
 ### Contracts contains
 1. _StasyqToken_ - Token contract
@@ -27,8 +27,7 @@ To start working with contract you should follow next steps:
 2. Deploy bytecode with MyEtherWallet. Gas 5100000 (actually 5073514).
 3. Call 'deploy' function on addres from (3). Gas 4000000 (actually 3979551). 
 
-Contract manager must call finishMinting after each crowdsale milestone!
-To support external mint service manager should specify address by calling _setDirectMintAgent_. After that specified address can direct mint tokens by calling _directMint_.
+Contract manager must call finish after each crowdsale in corresponding contract! To support external mint service manager should specify address by calling setDirectMintAgent. After that specified address can direct mint tokens by calling mintTokensByETHExternal and mintTokensExternal.
 
 ### How to invest
 To purchase tokens investor should send ETH (more than minimum 0.1 ETH) to corresponding crowdsale contract.
@@ -60,7 +59,7 @@ Maximum tokens can mint - 350 000 000 STQ
 * _Bounty tokens wallet_        : 0x6715Feb90B78d4d7aD92FbaCA7Fd70481e12f836
 * _Founders tokens lock period_ : 90 days
 * _Hardcap_                     : 20 000 ETH
-* _Price_                       : 10 000 STQ
+* _Price_                       : 10 000 SQOIN
 * _Period_                      : 60 days
 * _Start_                       : 03 May 2018 13:00:00 GMT
 * _Master wallet_               : 0x6715Feb90B78d4d7aD92FbaCA7Fd70481e12f836
@@ -70,16 +69,16 @@ Maximum tokens can mint - 350 000 000 STQ
 * _Contract owner_              : 0x6715Feb90B78d4d7aD92FbaCA7Fd70481e12f836
 
 _Milestones_
- 1. Hardcap 2000 ETH, price 14500 STQ per ETH (bonus +45%), summary ~29000000 STQ
- 2. Hardcap 2000 ETH, price 14000 STQ per ETH (bonus +40%), summary ~28000000 STQ
- 3. Hardcap 2000 ETH, price 13500 STQ per ETH (bonus +35%), summary ~27000000 STQ
- 4. Hardcap 2000 ETH, price 13000 STQ per ETH (bonus +30%), summary ~26000000 STQ
- 5. Hardcap 2000 ETH, price 12500 STQ per ETH (bonus +25%), summary ~25000000 STQ
- 6. Hardcap 2000 ETH, price 12000 STQ per ETH (bonus +20%), summary ~24000000 STQ
- 7. Hardcap 2000 ETH, price 11500 STQ per ETH (bonus +15%), summary ~23000000 STQ
- 8. Hardcap 2000 ETH, price 11000 STQ per ETH (bonus +10%), summary ~22000000 STQ
- 9. Hardcap 2000 ETH, price 10500 STQ per ETH (bonus  +5%), summary ~21000000 STQ
-10. Hardcap 2000 ETH, price 10000 STQ per ETH (bonus   0%), summary ~20000000 STQ
+ 1. Hardcap 2000 ETH, price 14500 SQOIN per ETH (bonus +45%), summary ~29000000 STQ
+ 2. Hardcap 2000 ETH, price 14000 SQOIN per ETH (bonus +40%), summary ~28000000 STQ
+ 3. Hardcap 2000 ETH, price 13500 SQOIN per ETH (bonus +35%), summary ~27000000 STQ
+ 4. Hardcap 2000 ETH, price 13000 SQOIN per ETH (bonus +30%), summary ~26000000 STQ
+ 5. Hardcap 2000 ETH, price 12500 SQOIN per ETH (bonus +25%), summary ~25000000 STQ
+ 6. Hardcap 2000 ETH, price 12000 SQOIN per ETH (bonus +20%), summary ~24000000 STQ
+ 7. Hardcap 2000 ETH, price 11500 SQOIN per ETH (bonus +15%), summary ~23000000 STQ
+ 8. Hardcap 2000 ETH, price 11000 SQOIN per ETH (bonus +10%), summary ~22000000 STQ
+ 9. Hardcap 2000 ETH, price 10500 SQOIN per ETH (bonus  +5%), summary ~21000000 STQ
+10. Hardcap 2000 ETH, price 10000 SQOIN per ETH (bonus   0%), summary ~20000000 STQ
 
 ### Links
 1. _Token_ - https://etherscan.io/token/0xf300cc72613d575a4567405c2a07d2aaf182aebf

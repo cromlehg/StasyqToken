@@ -53,15 +53,16 @@ Maximum tokens can mint - 350 000 000 STQ
 
 * _Minimal insvested limit_     : 0.1 ETH
 * _Bounty tokens percent_       : 5%
-* _Founders tokens percent_     : 25%
+* _Founders tokens percent_     : 25% (50% to master wallet, 50% to slave wallet)
 * _For sale tokens percent_     : 70%
 * _Founders tokens wallet_      : 0x05E87Dc9c075256cB94951e0b35C581b93961885
-* _Bounty tokens wallet_        : 0x6715Feb90B78d4d7aD92FbaCA7Fd70481e12f836
+* _Bounty tokens wallet master_ : 0x6715Feb90B78d4d7aD92FbaCA7Fd70481e12f836
+* _Bounty tokens wallet slave_  : 0x8029618Ecb5445B73515d7C51AbB316A91FC7f23
 * _Founders tokens lock period_ : 90 days
 * _Hardcap_                     : 20 000 ETH
 * _Price_                       : 10 000 SQOIN
 * _Period_                      : 60 days
-* _Start_                       : 03 May 2018 13:00:00 GMT
+* _Start_                       : Fri, 06 Apr 2018 13:00:00 GMT
 * _Master wallet_               : 0x6715Feb90B78d4d7aD92FbaCA7Fd70481e12f836
 * _Slave wallet_                : 0x8029618Ecb5445B73515d7C51AbB316A91FC7f23
 * _Master wallet percent_       : 50%
@@ -82,7 +83,7 @@ _Milestones_
 
 ### Links
 1. _Token_ - https://etherscan.io/token/0xf300cc72613d575a4567405c2a07d2aaf182aebf
-2. _ITO_ - https://etherscan.io/address/0xe945073fe198ef52f1179bc8ca69b65b270fcfc4
+2. _ITO_ - https://etherscan.io/address/0xfcedce553f6032462740f4e116a81ffe7f92d2b9
 
 ## Ropsten network configuration 
 
